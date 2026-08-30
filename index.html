@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOVER MD BOT | V6 CLEAN</title>
+<title>LOVER MD BOT | V7 VOICE+MUSIC</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 :root{--main:#00ff41;--glow:rgba(0,255,65,0.4)}*{margin:0;padding:0;box-sizing:border-box;font-family:'Courier New',monospace}
-body{background:#000;color:var(--main);text-align:center;padding:15px;overflow-x:hidden;transition:0.3s}
+body{background:#000;color:var(--main);text-align:center;padding:15px;overflow-x:hidden}
 canvas#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-4}
-#videoBg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-5;object-fit:cover;opacity:0.25;filter:hue-rotate(90deg)}
+#videoBg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-5;object-fit:cover;opacity:0.22;filter:hue-rotate(90deg)}
 .bg-glow{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:radial-gradient(circle at 50% 10%, var(--glow) 0%, transparent 50%), #000000c9}
-#cursor{position:fixed;width:20px;height:20px;border:2px solid var(--main);border-radius:50%;pointer-events:none;z-index:9999;box-shadow:0 0 15px var(--main);transition:transform 0.05s}
+#cursor{position:fixed;width:20px;height:20px;border:2px solid var(--main);border-radius:50%;pointer-events:none;z-index:9999;box-shadow:0 0 15px var(--main)}
 .top-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;max-width:720px;margin:0 auto 10px;font-size:9px}
 .top-item{background:#0a1a0a;border:1px solid var(--main);border-radius:4px;padding:5px 8px}
 h1{font-size:32px;margin:10px 0 5px;text-shadow:0 0 12px var(--main)}#typing{font-size:12px;min-height:16px;color:#fff}
@@ -21,27 +21,27 @@ h1{font-size:32px;margin:10px 0 5px;text-shadow:0 0 12px var(--main)}#typing{fon
 .qr-box img{background:#fff;padding:6px;border-radius:6px;width:180px}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:720px;margin:10px auto}
 .stat{background:#000;border:1px solid var(--main);border-radius:6px;padding:8px}.stat b{font-size:17px;color:#fff;display:block}
-.terminal{background:#000;border:1px solid var(--main);border-radius:8px;padding:8px;max-width:720px;margin:10px auto;text-align:left;height:130px;overflow-y:auto;font-size:11px}
+.terminal{background:#000;border:1px solid var(--main);border-radius:8px;padding:8px;max-width:720px;margin:10px auto;text-align:left;height:110px;overflow-y:auto;font-size:11px}
 .terminal input{background:transparent;border:none;color:var(--main);outline:none;width:65%;font-family:monospace}
 #aiChat{position:fixed;bottom:15px;right:15px;width:300px;background:#0a0a0a;border:2px solid var(--main);border-radius:12px;z-index:100;box-shadow:0 0 20px var(--main);text-align:left;overflow:hidden}
 #aiHead{background:var(--main);color:#000;padding:8px 12px;font-weight:900;display:flex;justify-content:space-between;font-size:12px}
-#aiMsgs{height:200px;overflow-y:auto;padding:8px;font-size:11px}
+#aiMsgs{height:180px;overflow-y:auto;padding:8px;font-size:11px}
 #aiInput{display:flex;border-top:1px solid var(--main)}#aiInput input{flex:1;background:#000;border:none;color:var(--main);padding:8px;outline:none;font-size:11px}#aiInput button{background:var(--main);border:none;padding:8px 12px;font-weight:900}
-#gameArea{position:relative;background:#000;border:1px dashed var(--main);height:140px;border-radius:8px;overflow:hidden;margin-top:8px}
-#bug{position:absolute;font-size:24px;cursor:pointer;user-select:none;transition:0.1s}
-.theme-dots{display:flex;gap:8px;justify-content:center;margin:8px 0}
-.dot{width:22px;height:22px;border-radius:50%;border:2px solid #fff;cursor:pointer}
+#gameArea{position:relative;background:#000;border:1px dashed var(--main);height:120px;border-radius:8px;overflow:hidden;margin-top:8px}
+#bug{position:absolute;font-size:22px;cursor:pointer}
+.theme-dots{display:flex;gap:8px;justify-content:center;margin:8px 0}.dot{width:22px;height:22px;border-radius:50%;border:2px solid #fff;cursor:pointer}
 .contact{max-width:500px;margin:12px auto;background:#0a1a0a;border:1px solid var(--main);border-radius:12px;padding:12px}
 .social{display:flex;align-items:center;gap:10px;background:#000;border:1px solid rgba(0,255,65,0.3);border-radius:6px;padding:9px;margin:5px 0;text-decoration:none;color:var(--main);text-align:left;font-size:11px}
 .social:hover{background:var(--main);color:#000}
 .shake{animation:shake 0.3s}@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 .liveStatus{background:#000;border:2px solid var(--main);border-radius:10px;padding:10px;display:flex;align-items:center;gap:10px;text-align:left}
 .liveDot{width:10px;height:10px;background:#00ff00;border-radius:50%;box-shadow:0 0 10px #00ff00;animation:blink 1s infinite}@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+#musicVisual{display:flex;gap:2px;justify-content:center;margin:6px 0;height:16px}.bar{width:3px;background:var(--main);animation:wave 0.6s infinite ease-in-out}.bar:nth-child(2){animation-delay:0.1s}.bar:nth-child(3){animation-delay:0.2s}.bar:nth-child(4){animation-delay:0.3s}@keyframes wave{0%,100%{height:4px}50%{height:16px}}
 </style>
 </head>
 <body>
 <div id="cursor"></div>
-<video id="videoBg" autoplay muted loop><source src="https://cdn.coverr.co/videos/coverr-hacker-typing-on-a-laptop-1582/1080p.mp4" type="video/mp4"></video>
+<video id="videoBg" autoplay muted loop playsinline><source src="https://cdn.coverr.co/videos/coverr-hacker-typing-on-a-laptop-1582/1080p.mp4" type="video/mp4"></video>
 <canvas id="matrix"></canvas><div class="bg-glow"></div>
 
 <div class="top-bar">
@@ -54,6 +54,14 @@ h1{font-size:32px;margin:10px 0 5px;text-shadow:0 0 12px var(--main)}#typing{fon
 <h1>[ LOVER MD BOT ]</h1>
 <div id="typing"></div>
 
+<div id="musicVisual"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+
+<div>
+<button class="btn" onclick="playVoice()" id="voiceBtn">🎤 VOICE INTRO</button>
+<button class="btn btn2" id="musicBtn" onclick="toggleMusic()">🎵 MUSIC: AUTO PLAYING...</button>
+<a class="btn" href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80" onclick="playClick()"><i class="fab fa-whatsapp"></i> CONNECT Ꮋᴇ𝚈𝚈🌚🎀</a>
+</div>
+
 <div class="theme-dots">
 <div class="dot" style="background:#00ff41" onclick="setTheme('#00ff41')"></div>
 <div class="dot" style="background:#ff0040" onclick="setTheme('#ff0040')"></div>
@@ -62,93 +70,100 @@ h1{font-size:32px;margin:10px 0 5px;text-shadow:0 0 12px var(--main)}#typing{fon
 </div>
 
 <div class="box">
-<div class="liveStatus">
-<div class="liveDot"></div>
-<div style="flex:1">
-<div style="font-weight:900;color:#fff;font-size:12px"><i class="fab fa-whatsapp"></i> Lover MD Bot • ONLINE <span style="font-size:9px;background:var(--main);color:#000;padding:2px 5px;border-radius:3px;margin-left:6px">LIVE</span></div>
-<div style="font-size:10px;margin-top:2px" id="typingStatus">typing...</div>
-<div style="font-size:8px;opacity:0.6;margin-top:2px">Last seen just now • Updated <span id="liveSec">2s</span> ago</div>
-</div>
-<i class="fas fa-shield-alt" style="font-size:18px"></i>
-</div>
+<div class="liveStatus"><div class="liveDot"></div><div style="flex:1"><div style="font-weight:900;color:#fff;font-size:12px"><i class="fab fa-whatsapp"></i> Lover MD Bot • ONLINE <span style="font-size:9px;background:var(--main);color:#000;padding:2px 5px;border-radius:3px">LIVE</span></div><div style="font-size:10px" id="typingStatus">typing...</div><div style="font-size:8px;opacity:0.6">Updated <span id="liveSec">2s</span> ago • Music ON 🎵</div></div><i class="fas fa-shield-alt"></i></div>
 </div>
 
-<div>
-<a class="btn" href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80" onclick="playClick();doShake()"><i class="fab fa-whatsapp"></i> CONNECT Ꮋᴇ𝚈𝚈🌚🎀</a>
-<button class="btn btn2" id="musicBtn" onclick="toggleMusic()">MUSIC: OFF</button>
-<button class="btn btn2" onclick="shareSite()">SHARE</button>
-</div>
+<div class="stats"><div class="stat"><b id="gCount">847</b>Groups</div><div class="stat"><b id="mCount">2.3M</b>Msgs</div><div class="stat"><b id="uCount">10.8K</b>Users</div></div>
 
-<div class="stats">
-<div class="stat"><b id="gCount">847</b>Groups</div>
-<div class="stat"><b id="mCount">2.3M</b>Msgs</div>
-<div class="stat"><b id="uCount">10.8K</b>Users</div>
-</div>
+<div class="qr-box"><b>[ SCAN_TO_HACK ]</b><br><img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80"><p style="font-size:9px;margin-top:6px">Ꮋᴇ𝚈𝚈ㅤẞᴀʙ𝚈ㅤ🌚🎀</p></div>
 
-<div class="qr-box">
-<b>[ SCAN_TO_HACK ]</b><br>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80">
-<p style="font-size:9px;margin-top:6px">Ꮋᴇ𝚈𝚈ㅤẞᴀʙ𝚈ㅤ🌚🎀 • ENCRYPTED</p>
-</div>
+<div class="box" style="text-align:center"><b style="color:#fff">>_ REVIEWS.exe [LIVE]</b><div style="margin-top:8px;background:#000;border:1px solid var(--main);border-radius:8px;padding:12px;min-height:65px"><p id="reviewText" style="font-size:12px;color:#fff">"Bot ta just agun! 🔥"</p><small id="reviewName" style="opacity:0.7">- @Rahul_Gamer</small></div><div style="margin-top:6px;font-size:10px">⭐⭐⭐⭐⭐ 4.9/5 (1,247)</div></div>
 
-<div class="box" style="text-align:center">
-<b style="color:#fff">>_ USER_REVIEWS.exe [LIVE]</b>
-<div style="margin-top:8px;background:#000;border:1px solid var(--main);border-radius:8px;padding:12px;min-height:75px">
-<p id="reviewText" style="font-size:12px;color:#fff">"Bot ta just agun! Group auto handle kore! 🔥"</p>
-<small id="reviewName" style="opacity:0.7">- @Rahul_Gamer, 2.3K Group Owner</small>
-</div>
-<div style="margin-top:6px;font-size:10px">⭐⭐⭐⭐⭐ 4.9/5 (1,247 reviews)</div>
-</div>
+<div class="box"><b style="color:#fff">>_ TERMINAL</b><div class="terminal" id="term"><div>> Ready<br>> Type 'help'</div></div><div style="display:flex;gap:6px;margin-top:6px"><span>lover@bot:~$</span><input id="termInput" placeholder="help, ping, hack" onkeydown="playType();if(event.key==='Enter')runCmd()"></div></div>
 
-<div class="box">
-<b style="color:#fff">>_ TERMINAL</b>
-<div class="terminal" id="term"><div>> Lover MD Shell Ready<br>> Type 'help'</div></div>
-<div style="display:flex;gap:6px;margin-top:6px"><span>lover@bot:~$</span><input id="termInput" placeholder="help, ping, hack, clear" onkeydown="playType();if(event.key==='Enter')runCmd()"></div>
-</div>
-
-<div class="box">
-<b style="color:#fff">>_ MINI HACK GAME</b>
-<div id="gameArea"><div id="bug" onclick="catchBug()">🐛</div></div>
-</div>
+<div class="box"><b style="color:#fff">>_ CATCH THE BUG 🐛</b><div id="gameArea"><div id="bug" onclick="catchBug()">🐛</div></div></div>
 
 <div class="contact">
 <b style="color:var(--main)">>_ CONTACT_ROOT</b>
-<a href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80" class="social"><i class="fab fa-whatsapp"></i><div><b>WhatsApp</b></div></a>
-<a href="https://www.instagram.com/official_soudip_97" target="_blank" class="social"><i class="fab fa-instagram"></i><div><b>Instagram - @official_soudip_97</b></div></a>
-<a href="https://t.me/Soudip90" target="_blank" class="social"><i class="fab fa-telegram"></i><div><b>Telegram - @Soudip90</b></div></a>
-<a href="mailto:bb4759779@gmail.com" class="social"><i class="fas fa-envelope"></i><div><b>Email</b></div></a>
+<a href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80" class="social"><i class="fab fa-whatsapp"></i><b>WhatsApp - 919083992123</b></a>
+<a href="https://www.instagram.com/official_soudip_97" target="_blank" class="social"><i class="fab fa-instagram"></i><b>Instagram - @official_soudip_97</b></a>
+<a href="https://t.me/Soudip90" target="_blank" class="social"><i class="fab fa-telegram"></i><b>Telegram - @Soudip90</b></a>
+<a href="mailto:bb4759779@gmail.com" class="social"><i class="fas fa-envelope"></i><b>Email - bb4759779@gmail.com</b></a>
 </div>
 
-<div id="aiChat">
-<div id="aiHead"><span>🤖 LOVER AI</span><span onclick="this.parentElement.parentElement.style.display='none'" style="cursor:pointer">X</span></div>
-<div id="aiMsgs"><div>AI: Heyy Baby 🌚🎀 bolo ki help lagbe?</div></div>
-<div id="aiInput"><input id="aiIn" placeholder="Type..." onkeydown="if(event.key==='Enter')sendAI()"><button onclick="sendAI()">SEND</button></div>
-</div>
+<div id="aiChat"><div id="aiHead"><span>🤖 LOVER AI</span><span onclick="this.parentElement.parentElement.style.display='none'" style="cursor:pointer">X</span></div><div id="aiMsgs"><div>AI: Heyy Baby 🌚🎀 music cholche? 🎵</div></div><div id="aiInput"><input id="aiIn" placeholder="Type..." onkeydown="if(event.key==='Enter')sendAI()"><button onclick="sendAI()">SEND</button></div></div>
 
-<audio id="bgMusic" loop><source src="https://cdn.pixabay.com/audio/2022/03/24/audio_0a9d6c53b7.mp3"></audio>
+<!-- AUTO MUSIC + VOICE -->
+<audio id="bgMusic" loop autoplay><source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg"></audio>
 <audio id="typeSound"><source src="https://cdn.pixabay.com/audio/2022/03/10/audio_c8c8a73467.mp3"></audio>
 <audio id="clickSound"><source src="https://cdn.pixabay.com/audio/2021/08/04/audio_a9bd4170e8.mp3"></audio>
 
 <script>
+// MATRIX
 const c=document.getElementById('matrix'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;let cols=Math.floor(c.width/16),drops=[];for(let i=0;i<cols;i++)drops[i]=Math.random()*-50;let matrixColor="#00ff41";function drawMatrix(){x.fillStyle="rgba(0,0,0,0.08)";x.fillRect(0,0,c.width,c.height);x.fillStyle=matrixColor;x.font="16px monospace";for(let i=0;i<drops.length;i++){x.fillText(Math.random()>0.5?"1":"0",i*16,drops[i]*16);if(drops[i]*16>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++}}setInterval(drawMatrix,35);
 const cur=document.getElementById('cursor');document.addEventListener('mousemove',e=>{cur.style.left=e.clientX-10+'px';cur.style.top=e.clientY-10+'px'});
 function setTheme(col){document.documentElement.style.setProperty('--main',col);matrixColor=col;localStorage.setItem('theme',col)}setTheme(localStorage.getItem('theme')||'#00ff41');
-function playType(){try{document.getElementById('typeSound').currentTime=0;document.getElementById('typeSound').volume=0.2;document.getElementById('typeSound').play()}catch(e){}}
-function playClick(){try{document.getElementById('clickSound').currentTime=0;document.getElementById('clickSound').volume=0.3;document.getElementById('clickSound').play()}catch(e){}}
+function playType(){try{let a=document.getElementById('typeSound');a.currentTime=0;a.volume=0.2;a.play()}catch(e){}}
+function playClick(){try{let a=document.getElementById('clickSound');a.currentTime=0;a.volume=0.3;a.play()}catch(e){}}
+
+// VISITOR ETC
 let v=localStorage.getItem('lb_visits');if(!v){v=10429+Math.floor(Math.random()*100);localStorage.setItem('lb_visits',v);}else{v=parseInt(v)+1;localStorage.setItem('lb_visits',v);}document.getElementById('visitor').innerText='VISITOR #'+v;
 fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{document.getElementById('ip').innerText='IP: '+d.ip}).catch(()=>{document.getElementById('ip').innerText='IP: 45.12x.xxx'});
 function updTime(){document.getElementById('time').innerText=new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata'})}setInterval(updTime,1000);updTime();
 let sec=0;setInterval(()=>{sec++;let d=Math.floor(sec/86400);let h=Math.floor((sec%86400)/3600);document.getElementById('uptime').innerText=d+'d '+h+'h';document.getElementById('gCount').innerText=847+Math.floor(sec/10);document.getElementById('mCount').innerText=(2.3+sec/10000).toFixed(2)+'M';document.getElementById('uCount').innerText=(10800+sec).toLocaleString()},1000);
-const texts=["root@lover-bot:~# v6 clean loaded...","root@lover-bot:~# all systems go_"];let ti=0,ci=0;function type(){if(ti<texts.length){if(ci<=texts[ti].length){document.getElementById('typing').innerText=texts[ti].substring(0,ci);ci++;setTimeout(type,35)}else{setTimeout(()=>{ti++;ci=0;if(ti<texts.length)type()},800)}}}type();
-function runCmd(){const i=document.getElementById('termInput'),t=document.getElementById('term'),val=i.value.toLowerCase().trim();let res="";if(!val)return;playClick();if(val==='help')res="help, ping, hack, clear";else if(val==='ping')res="PING 18ms ONLINE";else if(val==='hack')res="ACCESS GRANTED";else if(val==='clear'){t.innerHTML="";i.value="";return}else res="Unknown: "+val;t.innerHTML+="<br>> "+val+"<br>"+res;t.scrollTop=t.scrollHeight;i.value=""}
-function sendAI(){const inp=document.getElementById('aiIn'),box=document.getElementById('aiMsgs'),txt=inp.value.trim();if(!txt)return;box.innerHTML+="<div><b>You:</b> "+txt+"</div>";inp.value="";playClick();setTimeout(()=>{box.innerHTML+="<div><b>AI:</b> Heyy Baby 🌚🎀 WhatsApp e Ꮋᴇ𝚈𝚈ㅤẞᴀʙ𝚈ㅤ🌚🎀 likho!</div>";box.scrollTop=box.scrollHeight},500)}
-let score=0;function moveBug(){const b=document.getElementById('bug'),area=document.getElementById('gameArea');b.style.left=Math.random()*(area.clientWidth-30)+'px';b.style.top=Math.random()*(area.clientHeight-30)+'px'}setInterval(moveBug,1200);function catchBug(){score++;document.getElementById('score').innerText=score;playClick();doShake();moveBug();if(score>=10){alert('🎉 10 Score! Gift: Free Bot!');score=0;document.getElementById('score').innerText=score}}
-function toggleMusic(){const m=document.getElementById('bgMusic'),b=document.getElementById('musicBtn');if(m.paused){m.play();b.innerText='MUSIC: ON'}else{m.pause();b.innerText='MUSIC: OFF'}}
-function shareSite(){if(navigator.share){navigator.share({title:'Lover MD Bot',url:location.href})}else{navigator.clipboard.writeText(location.href);alert('Link Copied!')}}
+const texts=["root@lover-bot:~# voice + music enabled...","root@lover-bot:~# all systems go_"];let ti=0,ci=0;function type(){if(ti<texts.length){if(ci<=texts[ti].length){document.getElementById('typing').innerText=texts[ti].substring(0,ci);ci++;setTimeout(type,35)}else{setTimeout(()=>{ti++;ci=0;if(ti<texts.length)type()},800)}}}type();
+
+// TERMINAL + AI + GAME
+function runCmd(){const i=document.getElementById('termInput'),t=document.getElementById('term'),val=i.value.toLowerCase().trim();if(!val)return;playClick();let res="Unknown";if(val==='help')res="help, ping, hack, clear";else if(val==='ping')res="PING 18ms ONLINE ✓";else if(val==='hack')res="ACCESS GRANTED 😈";else if(val==='clear'){t.innerHTML="";i.value="";return} t.innerHTML+="<br>> "+val+"<br>"+res;t.scrollTop=t.scrollHeight;i.value=""}
+function sendAI(){const inp=document.getElementById('aiIn'),box=document.getElementById('aiMsgs'),txt=inp.value.trim();if(!txt)return;box.innerHTML+="<div><b>You:</b> "+txt+"</div>";inp.value="";playClick();setTimeout(()=>{box.innerHTML+="<div><b>AI:</b> Heyy Baby 🌚🎀 WhatsApp e Ꮋᴇ𝚈𝚈ㅤẞᴀʙ𝚈ㅤ🌚🎀 likho!</div>";box.scrollTop=box.scrollHeight;playVoice("Heyy Baby, check WhatsApp!")},500)}
+let score=0;function moveBug(){const b=document.getElementById('bug'),area=document.getElementById('gameArea');b.style.left=Math.random()*(area.clientWidth-30)+'px';b.style.top=Math.random()*(area.clientHeight-30)+'px'}setInterval(moveBug,1200);function catchBug(){score++;document.getElementById('score').innerText=score;playClick();doShake();moveBug();if(score>=10){alert('🎉 10 Score!');score=0;document.getElementById('score').innerText=score}}
 function doShake(){document.body.classList.add('shake');setTimeout(()=>document.body.classList.remove('shake'),300)}
-const reviews=[{t:"Bot ta just agun! Group auto handle kore! 🔥",n:"- @Rahul_Gamer"},{t:"Best WhatsApp bot ever!",n:"- @Priya_Edits"},{t:"Pair code 10 sec e pelam!",n:"- @Aman_X"},{t:"AI feature sera!",n:"- @Sneha_Official"},{t:"Premium worth it!",n:"- @Dev_Hacker"}];let r=0;setInterval(()=>{r=(r+1)%reviews.length;document.getElementById('reviewText').innerText='"'+reviews[r].t+'"';document.getElementById('reviewName').innerText=reviews[r].n},3000);
+
+// VOICE INTRO
+function playVoice(text=null){
+  if(!('speechSynthesis' in window))return;
+  speechSynthesis.cancel();
+  const msg=new SpeechSynthesisUtterance(text||"Welcome to Lover MD Bot! Heyy Baby, Welcome! I am Lover AI, ready to help you!");
+  msg.rate=0.9;msg.pitch=0.9;msg.volume=1;
+  const voices=speechSynthesis.getVoices();const robot=voices.find(v=>v.name.includes('Google'));
+  if(robot)msg.voice=robot;
+  msg.onstart=()=>{document.getElementById('voiceBtn').innerText='🎤 VOICE: PLAYING...'}
+  msg.onend=()=>{document.getElementById('voiceBtn').innerText='🎤 VOICE: ON - Replay?'}
+  speechSynthesis.speak(msg);
+}
+if(speechSynthesis.onvoiceschanged!==undefined){speechSynthesis.onvoiceschanged=()=>{speechSynthesis.getVoices();}}
+
+// AUTO MUSIC LOGIC - TRICK FOR BROWSER
+let playing=false;
+function tryPlayMusic(){
+  const m=document.getElementById('bgMusic');
+  m.volume=0.4;
+  m.play().then(()=>{playing=true;document.getElementById('musicBtn').innerText='🎵 MUSIC: ON - Click to OFF';}).catch(()=>{
+    document.getElementById('musicBtn').innerText='🎵 MUSIC: Click to PLAY (Browser Blocked)';
+  });
+}
+function toggleMusic(){
+  const m=document.getElementById('bgMusic');
+  if(!playing){m.play();playing=true;document.getElementById('musicBtn').innerText='🎵 MUSIC: ON';}
+  else{m.pause();playing=false;document.getElementById('musicBtn').innerText='🎵 MUSIC: OFF';}
+}
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    tryPlayMusic();
+    // Voice auto after music
+    setTimeout(()=>{playVoice("Welcome to Lover MD Bot! Heyy Baby, Welcome! Music is playing!");},1200);
+  },800);
+});
+// First click anywhere = play music (browser policy bypass)
+document.addEventListener('click',function firstClick(){
+  if(!playing)tryPlayMusic();
+  document.removeEventListener('click',firstClick);
+}, {once:true});
+
+// REVIEWS + LIVE STATUS
+const reviews=[{t:"Bot ta just agun! 🔥",n:"- @Rahul_Gamer"},{t:"Best WhatsApp bot ever!",n:"- @Priya_Edits"},{t:"Pair code 10 sec e pelam!",n:"- @Aman_X"},{t:"AI feature sera!",n:"- @Sneha_Official"},{t:"Premium worth it!",n:"- @Dev_Hacker"}];let r=0;setInterval(()=>{r=(r+1)%reviews.length;document.getElementById('reviewText').innerText='"'+reviews[r].t+'"';document.getElementById('reviewName').innerText=reviews[r].n},3000);
 const typingArr=["typing...","online","recording..."];let ti2=0;setInterval(()=>{document.getElementById('typingStatus').innerText=typingArr[ti2%typingArr.length];ti2++;document.getElementById('liveSec').innerText=Math.floor(Math.random()*5+1)+'s'},2500);
 window.onresize=()=>{c.width=innerWidth;c.height=innerHeight;cols=Math.floor(c.width/16)}
 </script>
 </body>
-</html>
+  </html>
