@@ -2,60 +2,69 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lover MD Bot | Pro Hacker</title>
+<title>Lover MD Bot</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Courier New',monospace}
-body{
-background:#000;
-color:#00ff41;
-text-align:center;
-padding:15px;
-overflow-x:hidden;
-position:relative;
-}
-/* PRO BACKGROUND LAYERS */
-canvas#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-3;opacity:0.18}
-.bg-gradient{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;
-background:
-radial-gradient(ellipse at 20% 30%, rgba(0,255,65,0.15) 0%, transparent 50%),
-radial-gradient(ellipse at 80% 70%, rgba(0,255,65,0.12) 0%, transparent 50%),
-radial-gradient(ellipse at 50% 50%, rgba(0,100,30,0.1) 0%, transparent 70%),
-linear-gradient(180deg, #000 0%, #001a05 100%);
-}
-.vignette{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;
-background:radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.8) 100%)}
-h1{font-size:38px;margin:20px 0 5px;color:#00ff41;text-shadow:0 0 10px #00ff41,0 0 20px #00ff41,0 0 40px #00ff41;letter-spacing:2px}
-.btn{padding:14px 32px;border-radius:4px;text-decoration:none;font-weight:900;display:inline-block;margin:15px;background:#00ff41;color:#000;box-shadow:0 0 20px #00ff41,0 0 40px rgba(0,255,65,0.5);border:1px solid #00ff41;transition:0.3s}
-.btn:hover{transform:scale(1.08);box-shadow:0 0 30px #00ff41,0 0 60px #00ff41;background:#fff}
-.qr-box{background:rgba(0,20,0,0.6);backdrop-filter:blur(12px);border:1px solid #00ff41;border-radius:12px;padding:22px;max-width:360px;margin:20px auto;box-shadow:0 0 25px rgba(0,255,65,0.25),inset 0 0 20px rgba(0,255,65,0.05)}
-.qr-box img{background:#fff;padding:8px;border-radius:6px;width:200px;margin-top:10px;border:2px solid #00ff41;box-shadow:0 0 15px #00ff41}
-.box{max-width:600px;margin:15px auto;background:rgba(0,255,65,0.06);backdrop-filter:blur(10px);border:1px solid rgba(0,255,65,0.5);border-radius:8px;padding:14px;text-align:left;font-size:12px;box-shadow:0 0 15px rgba(0,255,65,0.15)}
+body{background:#000;color:#00ff41;text-align:center;padding:15px;position:relative}
+canvas#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;opacity:0.18}
+.bg-glow{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 50% 20%, rgba(0,255,65,0.18) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(0,255,65,0.1) 0%, transparent 30%), #000}
+h1{font-size:38px;margin:20px 0 5px;color:#00ff41;text-shadow:0 0 10px #00ff41,0 0 20px #00ff41;letter-spacing:2px}
+.btn{padding:14px 32px;border-radius:6px;text-decoration:none;font-weight:900;display:inline-block;margin:15px;background:#00ff41;color:#000;box-shadow:0 0 20px #00ff41;border:1px solid #00ff41}
+.qr-box{background:#0a1a0a;border:1px solid #00ff41;border-radius:12px;padding:20px;max-width:360px;margin:20px auto;box-shadow:0 0 20px rgba(0,255,65,0.2)}
+.qr-box img{background:#fff;padding:8px;border-radius:6px;width:200px;margin-top:10px}
+.box{max-width:600px;margin:15px auto;background:#0a1a0a;border:1px solid #00ff41;border-radius:8px;padding:12px;text-align:left;font-size:12px}
 .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:600px;margin:20px auto}
-.card{background:rgba(0,255,65,0.05);backdrop-filter:blur(8px);border:1px solid rgba(0,255,65,0.3);border-radius:8px;padding:16px;transition:0.3s}
-.card:hover{border-color:#00ff41;box-shadow:0 0 15px rgba(0,255,65,0.4);transform:translateY(-3px)}
-.contact{max-width:500px;margin:25px auto;background:rgba(0,20,0,0.5);backdrop-filter:blur(10px);border:1px solid #00ff41;border-radius:12px;padding:18px;box-shadow:0 0 20px rgba(0,255,65,0.2)}
-.social{display:flex;align-items:center;gap:10px;background:rgba(0,255,65,0.05);border:1px solid rgba(0,255,65,0.3);border-radius:6px;padding:12px;margin:8px 0;text-decoration:none;color:#00ff41;text-align:left;transition:0.2s}
-.social:hover{background:#00ff41;color:#000;box-shadow:0 0 12px #00ff41}
+.card{background:#0a1a0a;border:1px solid rgba(0,255,65,0.4);border-radius:8px;padding:16px}
+.contact{max-width:500px;margin:25px auto;background:#0a1a0a;border:1px solid #00ff41;border-radius:12px;padding:18px}
+.social{display:flex;align-items:center;gap:10px;background:#000;border:1px solid rgba(0,255,65,0.3);border-radius:6px;padding:12px;margin:8px 0;text-decoration:none;color:#00ff41;text-align:left}
+.social:hover{background:#00ff41;color:#000}
 </style>
 </head>
 <body>
 <canvas id="matrix"></canvas>
-<div class="bg-gradient"></div>
-<div class="vignette"></div>
+<div class="bg-glow"></div>
 
 <h1>[ LOVER MD BOT ]</h1>
-<p style="font-size:12px;opacity:0.9;text-shadow:0 0 5px #00ff41">root@lover-bot:~# system online • pro mode active</p>
+<p style="font-size:12px;opacity:0.9">root@lover-bot:~# system online • pro mode</p>
 
 <a class="btn" href="https://wa.me/919083992123?text=Hi%20Bot"><i class="fab fa-whatsapp"></i> CONNECT_WHATSAPP.exe</a>
 
 <div class="qr-box">
-<b style="letter-spacing:2px;text-shadow:0 0 8px #00ff41">[ SCAN_TO_HACK ]</b><br>
+<b style="letter-spacing:2px">[ SCAN_TO_HACK ]</b><br>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://wa.me/919083992123" alt="QR">
-<p style="font-size:9px;margin-top:10px;opacity:0.7;letter-spacing:1px">wa.me/919083992123 | AES-256 ENCRYPTED</p>
+<p style="font-size:9px;margin-top:10px;opacity:0.7">wa.me/919083992123 | ENCRYPTED</p>
 </div>
 
 <div class="box">
-> System Status: <span style="color:#fff;text-shadow:0 0 5px #fff">ONLINE</span> ●<br>
+> System Status: <span style="color:#fff">ONLINE</span><br>
 > Encryption: AES-256 ENABLED<br>
-> Users: 10K+ Active Nodes
+> Users: 10K+ Active<br>
+> Uptime: 99.9% SECURE
+</div>
+
+<div class="features">
+<div class="card"><i class="fas fa-robot" style="font-size:20px"></i><br><b>AUTO_REPLY</b><br><small>24/7 Smart</small></div>
+<div class="card"><i class="fas fa-shield-alt" style="font-size:20px"></i><br><b>ANTI_LINK</b><br><small>Protection</small></div>
+<div class="card"><i class="fas fa-terminal" style="font-size:20px"></i><br><b>GROUP_CTRL</b><br><small>Root Access</small></div>
+<div class="card"><i class="fas fa-brain" style="font-size:20px"></i><br><b>AI_CORE</b><br><small>GPT Integrated</small></div>
+</div>
+
+<div class="contact">
+<b style="color:#00ff41">>_ CONTACT_ROOT</b>
+<a href="https://wa.me/919083992123" class="social"><i class="fab fa-whatsapp"></i> <div><b>WhatsApp</b><br><small>919083992123</small></div></a>
+<a href="https://www.instagram.com/official_soudip_97" target="_blank" class="social"><i class="fab fa-instagram"></i> <div><b>Instagram</b><br><small>@official_soudip_97</small></div></a>
+<a href="https://t.me/Soudip90" target="_blank" class="social"><i class="fab fa-telegram"></i> <div><b>Telegram</b><br><small>@Soudip90</small></div></a>
+<a href="mailto:bb4759779@gmail.com" class="social"><i class="fas fa-envelope"></i> <div><b>Email</b><br><small>bb4759779@gmail.com</small></div></a>
+</div>
+
+<div style="margin:30px 0 10px;border-top:1px solid rgba(0,255,65,0.2);padding-top:15px;font-size:11px;opacity:0.6">Powered by Lover Bot | © 2026</div>
+
+<script>
+const c=document.getElementById('matrix'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+const cols=Math.floor(c.width/14),drops=[];for(let i=0;i<cols;i++)drops[i]=0;
+setInterval(()=>{x.fillStyle="rgba(0,0,0,0.05)";x.fillRect(0,0,c.width,c.height);x.fillStyle="#00ff41";x.font="14px monospace";for(let i=0;i<drops.length;i++){x.fillText(Math.random()>0.5?"1":"0",i*14,drops[i]*14);if(drops[i]*14>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++}},35);
+window.onresize=()=>{c.width=innerWidth;c.height=innerHeight}
+</script>
+</body>
+</html>
