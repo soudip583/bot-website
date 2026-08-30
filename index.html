@@ -3,18 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOVER MD BOT | ROOT ACCESS</title>
+<title>Lover MD Bot</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Courier New',monospace}
-body{background:#000;color:#00ff41;text-align:center;overflow-x:hidden;cursor:none}
-canvas#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.18}
-.cursor{position:fixed;width:20px;height:20px;border:1px solid #00ff41;border-radius:50%;pointer-events:none;z-index:9999;box-shadow:0 0 10px #00ff41;transition:0.1s}
-.cursor-trail{position:fixed;width:6px;height:6px;background:#00ff41;border-radius:50%;pointer-events:none;z-index:9998;opacity:0.6}
-/* Glitch */
-.glitch{position:relative;font-size:44px;font-weight:900;letter-spacing:3px;text-shadow:0 0 10px #00ff41;animation:glitch-anim 2s infinite}
-.glitch:before,.glitch:after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;clip:rect(0,900px,0,0)}
-.glitch:before{left:-2px;text-shadow:2px 0 #ff00ff;animation:glitch-anim 3s infinite linear alternate-reverse}
-.glitch:after{left:2px;text-shadow:-2px 0 #00ffff;animation:glitch-anim 2s infinite linear alternate-reverse}
-@keyframes glitch-anim{0%{clip:rect(10px,9999px,20px,0)}20%{clip:rect(80px,9999px,90px,0)}100%{clip:rect(10px,9999px,20px,0)}}
-.typing
+body{background:#000;color:#00ff41;text-align:center;padding:15px;overflow-x:hidden}
+canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;opacity:0.15}
+h1{font-size:36px;margin:20px 0 5px;color:#00ff41;text-shadow:0 0 10px #00ff41}
+.btn{padding:14px 28px;border-radius:5px;text-decoration:none;font-weight:700;display:inline-block;margin:15px;background:#00ff41;color:#000;box-shadow:0 0 20px #00ff41;border:1px solid #00ff41}
+.qr-box{background:rgba(0,20,0,0.7);border:1px solid #00ff41;border-radius:10px;padding:20px;max-width:350px;margin:20px auto;box-shadow:0 0 15px rgba(0,255,65,0.3)}
+.qr-box img{background:#fff;padding:8px;border-radius:5px;width:200px;margin-top:10px}
+.box{max-width:600px;margin:15px auto;background:rgba(0,255,65,0.07);border:1px solid #00ff41;border-radius:5px;padding:12px;text-align:left;font-size:12px}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:600px;margin:20px auto}
+.card{background:rgba(0,255,65,0.07);border:1px solid rgba(0,255,65,0.4);border-radius:5px;padding:15px}
+.contact{max-width:500px;margin:20px auto;background:rgba(0,20,0,0.6);border:1px solid #00ff41;border-radius:10px;padding:15px}
+.social{display:block;background:rgba(0,255,65,0.08);border:1px solid rgba(0,255,65,0.3);border-radius:5px;padding:12px;margin:8px 0;text-decoration:none;color:#00ff41;text-align:left}
+.social:hover{background:#00ff41;color:#000}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<h1>[ LOVER MD BOT ]</h1>
+<p style="font-size:12px;opacity:0.8">root@lover-bot:~# system online</p>
+
+<a class="btn" href="https://wa.me/919083992123?text=Hi%20Bot"><i class="fab fa-whatsapp"></i> CONNECT_WHATSAPP.exe</a>
+
+<div class="qr-box">
+<b>[ SCAN_TO_HACK ]</b><br>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/919083992123" alt="QR">
+<p style="font-size:9px;margin-top:8px">wa.me/919083992123 | ENCRYPTED</p>
+</div>
+
+<div class="box">
+> System Status: <span style="color:#fff">ONLINE</span><br>
+> Encryption: AES-256 ENABLED<br>
+> Users: 10K+ Active<br>
+> Uptime: 99.9% SECURE
+</div>
+
+<div class="features">
+<div class="card"><i class="fas fa-robot"></i><br><b>AUTO_REPLY</b><br><small>24/7 Smart</small></div>
+<div class="card"><i class="fas fa-shield-alt"></i><br><b>ANTI_LINK</b><br><small>Group Protection</small></div>
+<div class="card"><i class="fas fa-terminal"></i><br><b>GROUP_CTRL</b><br><small>Root Access</small></div>
+<div class="card"><i class="fas fa-brain"></i><br><b>AI_CORE</b><br><small>GPT Integrated</small></div>
+</div>
+
+<div class="contact">
+<b>>_ CONTACT_ROOT</b><br>
+<a href="https://wa.me/919083992123" class="social"><i class="fab fa-whatsapp"></i> WhatsApp: 919083992123</a>
+<a href="https://www.instagram.com/official_soudip_97" class="social"><i class="fab fa-instagram"></i> Instagram: @official_soudip_97</a>
+<a href="https://t.me/Soudip90" class="social"><i class="fab fa-telegram"></i> Telegram: @Soudip90</a>
+<a href="mailto:bb4759779@gmail.com" class="social"><i class="fas fa-envelope"></i> Email: bb4759779@gmail.com</a>
+</div>
+
+<div style="margin:30px 0 10px;border-top:1px solid rgba(0,255,65,0.3);padding-top:10px;font-size:11px">Powered by Lover Bot | © 2026 SECURED</div>
+
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+const cols=c.width/14;const drops=[];for(let i=0;i<cols;i++)drops[i]=0;
+setInterval(()=>{x.fillStyle="rgba(0,0,0,0.05)";x.fillRect(0,0,c.width,c.height);x.fillStyle="#00ff41";x.font="14px monospace";for(let i=0;i<drops.length;i++){x.fillText(Math.random()>0.5?"1":"0",i*14,drops[i]*14);if(drops[i]*14>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++}},35);
+window.onresize=()=>{c.width=innerWidth;c.height=innerHeight}
+</script>
+</body>
+</html>
