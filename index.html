@@ -2,73 +2,144 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lover MD Bot | Ultimate</title>
+<title>LOVER MD BOT | ULTIMATE V4</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Courier New',monospace}
-body{background:#000;color:#00ff41;text-align:center;padding:15px;position:relative}
-canvas#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;opacity:0.15}
-.bg-glow{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:radial-gradient(circle at 50% 20%, rgba(0,255,65,0.18) 0%, transparent 40%), #000}
-.top-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;max-width:600px;margin:0 auto 10px;font-size:10px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Courier New',monospace;cursor:none}
+body{background:#000;color:#00ff41;text-align:center;padding:15px;overflow-x:hidden}
+canvas#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-3}
+.bg-glow{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;background:radial-gradient(circle at 50% 10%, rgba(0,255,65,0.15) 0%, transparent 50%), #000000d9}
+#cursor{position:fixed;width:20px;height:20px;border:2px solid #00ff41;border-radius:50%;pointer-events:none;z-index:9999;box-shadow:0 0 15px #00ff41,0 0 30px #00ff41;transition:transform 0.05s}
+.top-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;max-width:700px;margin:0 auto 10px;font-size:9px}
 .top-item{background:#0a1a0a;border:1px solid #00ff41;border-radius:4px;padding:5px 8px}
-h1{font-size:36px;margin:15px 0 5px;text-shadow:0 0 10px #00ff41,0 0 20px #00ff41}
-#typing{font-size:13px;min-height:18px;color:#fff;margin-bottom:10px}
-.btn{padding:12px 28px;border-radius:6px;text-decoration:none;font-weight:900;display:inline-block;margin:8px;background:#00ff41;color:#000;box-shadow:0 0 15px #00ff41;border:1px solid #00ff41}
+h1{font-size:34px;margin:10px 0 5px;text-shadow:0 0 10px #00ff41,0 0 25px #00ff41}
+#typing{font-size:12px;min-height:16px;color:#fff}
+.btn{padding:11px 22px;border-radius:6px;text-decoration:none;font-weight:900;display:inline-block;margin:6px;background:#00ff41;color:#000;box-shadow:0 0 15px #00ff41;border:1px solid #00ff41;font-size:12px}
 .btn2{background:transparent;color:#00ff41}
-.qr-box{background:#0a1a0a;border:1px solid #00ff41;border-radius:12px;padding:20px;max-width:360px;margin:18px auto;box-shadow:0 0 15px rgba(0,255,65,0.2)}
-.qr-box img{background:#fff;padding:8px;border-radius:6px;width:200px;margin-top:10px}
-.box{max-width:600px;margin:12px auto;background:#0a1a0a;border:1px solid #00ff41;border-radius:8px;padding:12px;text-align:left;font-size:11px}
-.features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:600px;margin:15px auto}
-.card{background:#0a1a0a;border:1px solid rgba(0,255,65,0.4);border-radius:8px;padding:14px}
-.contact{max-width:500px;margin:20px auto;background:#0a1a0a;border:1px solid #00ff41;border-radius:12px;padding:16px}
-.social{display:flex;align-items:center;gap:10px;background:#000;border:1px solid rgba(0,255,65,0.3);border-radius:6px;padding:10px;margin:6px 0;text-decoration:none;color:#00ff41;text-align:left}
+.card-box{max-width:700px;margin:12px auto;background:#0a1a0ab3;border:1px solid #00ff41;border-radius:10px;padding:14px;text-align:left}
+.qr-box{background:#0a1a0a;border:1px solid #00ff41;border-radius:12px;padding:18px;max-width:360px;margin:15px auto;box-shadow:0 0 15px rgba(0,255,65,0.2)}
+.qr-box img{background:#fff;padding:6px;border-radius:6px;width:190px;margin-top:8px}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:700px;margin:12px auto}
+.feat{background:#0a1a0a;border:1px solid rgba(0,255,65,0.4);border-radius:8px;padding:12px;font-size:11px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:700px;margin:12px auto}
+.stat{background:#000;border:1px solid #00ff41;border-radius:6px;padding:10px}
+.stat b{font-size:18px;color:#fff;display:block}
+.terminal{background:#000;border:1px solid #00ff41;border-radius:8px;padding:10px;max-width:700px;margin:12px auto;text-align:left;height:160px;overflow-y:auto;font-size:11px}
+.terminal input{background:transparent;border:none;color:#00ff41;outline:none;width:70%;font-family:monospace}
+.cmd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;font-size:10px;text-align:left}
+.cmd{background:#000;border:1px solid rgba(0,255,65,0.3);border-radius:4px;padding:6px 8px}
+.contact{max-width:500px;margin:15px auto;background:#0a1a0a;border:1px solid #00ff41;border-radius:12px;padding:14px}
+.social{display:flex;align-items:center;gap:10px;background:#000;border:1px solid rgba(0,255,65,0.3);border-radius:6px;padding:10px;margin:6px 0;text-decoration:none;color:#00ff41;text-align:left;font-size:12px}
 .social:hover{background:#00ff41;color:#000}
+.faq{max-width:700px;margin:12px auto;text-align:left;font-size:11px}
+.faq details{background:#0a1a0a;border:1px solid rgba(0,255,65,0.3);border-radius:6px;margin:6px 0;padding:8px}
+.shake{animation:shake 0.3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 </style>
 </head>
 <body>
+<div id="cursor"></div>
 <canvas id="matrix"></canvas><div class="bg-glow"></div>
 
 <div class="top-bar">
 <div class="top-item" id="visitor">VISITOR #10429</div>
-<div class="top-item" id="time">--:--:--</div>
-<div class="top-item">UPTIME: <span id="uptime">14d 06h</span></div>
+<div class="top-item" id="ip">IP: Loading...</div>
+<div class="top-item" id="time">--:--</div>
+<div class="top-item">UPTIME: <span id="uptime">0d 0h</span></div>
 </div>
 
 <h1>[ LOVER MD BOT ]</h1>
 <div id="typing"></div>
 
 <div>
-<a class="btn" href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80"><i class="fab fa-whatsapp"></i> CONNECT.exe</a>
-<button class="btn btn2" id="musicBtn" onclick="toggleMusic()"><i class="fas fa-music"></i> MUSIC: OFF</button>
-<button class="btn btn2" onclick="shareSite()"><i class="fas fa-share-alt"></i> SHARE</button>
+<a class="btn" href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80" onclick="doShake()"><i class="fab fa-whatsapp"></i> CONNECT Ꮋᴇ𝚈𝚈🌚🎀</a>
+<button class="btn btn2" id="musicBtn" onclick="toggleMusic()">MUSIC: OFF</button>
+<button class="btn btn2" onclick="shareSite()">SHARE</button>
+</div>
+
+<div class="stats">
+<div class="stat"><b id="gCount">847</b>Groups</div>
+<div class="stat"><b id="mCount">2.3M</b>Msgs Sent</div>
+<div class="stat"><b id="uCount">10.8K</b>Users</div>
 </div>
 
 <div class="qr-box">
 <b>[ SCAN_TO_HACK ]</b><br>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80" alt="QR">
-<p style="font-size:9px;margin-top:8px;opacity:0.6">Ꮋᴇ𝚈𝚈ㅤẞᴀʙ𝚈ㅤ🌚🎀</p>
+<p style="font-size:9px;margin-top:6px">Ꮋᴇ𝚈𝚈ㅤẞᴀʙ𝚈ㅤ🌚🎀 • ENCRYPTED</p>
 </div>
 
-<div class="box">> System Status: ONLINE ●<br>> Encryption: AES-256 ENABLED<br>> Users: 10,847 Active<br>> Bot: Lover MD v3.9</div>
+<div class="card-box">
+<b style="color:#fff">>_ TERMINAL - Type help</b>
+<div class="terminal" id="term"><div>> Welcome to Lover MD Root Shell<br>> Type 'help' to begin</div></div>
+<div style="display:flex;gap:6px;margin-top:6px"><span style="font-size:11px">lover@bot:~$</span><input id="termInput" placeholder="help, ping, hack, clear" onkeydown="if(event.key==='Enter')runCmd()"></div>
+</div>
+
+<div class="card-box">
+<b style="color:#fff">>_ BOT COMMANDS</b>
+<div class="cmd-grid" style="margin-top:8px">
+<div class="cmd"><b>.menu</b> - Show all commands</div><div class="cmd"><b>.ping</b> - Check speed</div>
+<div class="cmd"><b>.kick @user</b> - Remove user</div><div class="cmd"><b>.ai query</b> - Ask AI</div>
+<div class="cmd"><b>.sticker</b> - Photo to sticker</div><div class="cmd"><b>.alive</b> - Bot status</div>
+<div class="cmd"><b>.owner</b> - Contact owner</div><div class="cmd"><b>.grouplink</b> - Get invite</div>
+</div>
+</div>
 
 <div class="features">
-<div class="card"><i class="fas fa-robot"></i><br><b>AUTO_REPLY</b><br><small>24/7 Smart</small></div>
-<div class="card"><i class="fas fa-shield-alt"></i><br><b>ANTI_LINK</b><br><small>Protection ON</small></div>
-<div class="card"><i class="fas fa-terminal"></i><br><b>GROUP_CTRL</b><br><small>Root Access</small></div>
-<div class="card"><i class="fas fa-brain"></i><br><b>AI_CORE</b><br><small>GPT-4 Online</small></div>
+<div class="feat"><i class="fas fa-robot"></i><br><b>AUTO_REPLY</b><br>24/7 Smart Reply</div>
+<div class="feat"><i class="fas fa-shield-alt"></i><br><b>ANTI_LINK</b><br>Auto Protection</div>
+<div class="feat"><i class="fas fa-terminal"></i><br><b>GROUP_CTRL</b><br>Root Access</div>
+<div class="feat"><i class="fas fa-brain"></i><br><b>AI_CORE</b><br>GPT-4 Integrated</div>
+</div>
+
+<div class="card-box" style="text-align:center">
+<b>DOWNLOAD & PAIR</b><br><br>
+<a class="btn" href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80"><i class="fas fa-download"></i> GET PAIR CODE</a>
+<a class="btn btn2" href="#"><i class="fab fa-android"></i> DOWNLOAD APK</a>
 </div>
 
 <div class="contact">
 <b style="color:#00ff41">>_ CONTACT_ROOT</b>
-<a href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80" class="social"><i class="fab fa-whatsapp"></i><div><b>WhatsApp</b><br><small>919083992123</small></div></a>
+<a href="https://Wa.me/+919083992123/?text=%E1%8E%BB%E1%B4%87%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%E1%BA%9E%E1%B4%80%CA%99%F0%9D%9A%88%F0%9D%9A%88%E3%80%80%F0%9F%8C%9A%F0%9F%8E%80" class="social"><i class="fab fa-whatsapp"></i><div><b>WhatsApp</b><br><small>919083992123 - Ꮋᴇ𝚈𝚈ㅤẞᴀʙ𝚈ㅤ🌚🎀</small></div></a>
 <a href="https://www.instagram.com/official_soudip_97" target="_blank" class="social"><i class="fab fa-instagram"></i><div><b>Instagram</b><br><small>@official_soudip_97</small></div></a>
 <a href="https://t.me/Soudip90" target="_blank" class="social"><i class="fab fa-telegram"></i><div><b>Telegram</b><br><small>@Soudip90</small></div></a>
 <a href="mailto:bb4759779@gmail.com" class="social"><i class="fas fa-envelope"></i><div><b>Email</b><br><small>bb4759779@gmail.com</small></div></a>
 </div>
 
-<div style="margin:20px 0 10px;border-top:1px solid rgba(0,255,65,0.2);padding-top:10px;font-size:11px;opacity:0.6">Powered by Lover Bot | © 2026</div>
+<div class="faq">
+<b style="color:#fff">>_ FAQ</b>
+<details><summary>Bot ki free?</summary><p style="margin-top:6px">Ha, basic free. Premium e extra feature pabe.</p></details>
+<details><summary>Bot offline gele ki korbo?</summary><p style="margin-top:6px">WhatsApp e Ꮋᴇ𝚈𝚈ㅤẞᴀʙ𝚈ㅤ🌚🎀 likhe pathao, instant online kore debo.</p></details>
+<details><summary>Group e add korbo kivabe?</summary><p style="margin-top:6px">Connect button e click kore Pair Code nao, 30 sec e add hobe.</p></details>
+</div>
+
+<div style="margin:20px 0 10px;border-top:1px solid rgba(0,255,65,0.2);padding-top:10px;font-size:10px;opacity:0.6">Powered by Lover Bot | © 2026 • IP LOGGED • SECURED</div>
 
 <audio id="bgMusic" loop><source src="https://cdn.pixabay.com/audio/2022/03/24/audio_0a9d6c53b7.mp3" type="audio/mpeg"></audio>
+
 <script>
+// MATRIX RAIN - GREEN
 const c=document.getElementById('matrix'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
-const cols=Math.floor(c.width/14),drops=[];for(let i=0;i<cols
+const cols=Math.floor(c.width/16),drops=[];for(let i=0;i<cols;i++)drops[i]=Math.random()*-50;
+function drawMatrix(){x.fillStyle="rgba(0,0,0,0.08)";x.fillRect(0,0,c.width,c.height);x.fillStyle="#00ff41";x.font="16px monospace";for(let i=0;i<drops.length;i++){const txt="01"[Math.floor(Math.random()*2)];x.fillText(txt,i*16,drops[i]*16);if(drops[i]*16>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++}}setInterval(drawMatrix,35);
+// CURSOR
+const cur=document.getElementById('cursor');document.addEventListener('mousemove',e=>{cur.style.left=e.clientX-10+'px';cur.style.top=e.clientY-10+'px'});
+// Visitor + IP + Time
+let v=localStorage.getItem('lb_visits');if(!v){v=10429+Math.floor(Math.random()*100);localStorage.setItem('lb_visits',v);}else{v=parseInt(v)+1;localStorage.setItem('lb_visits',v);}document.getElementById('visitor').innerText='VISITOR #'+v;
+fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{document.getElementById('ip').innerText='IP: '+d.ip}).catch(()=>{document.getElementById('ip').innerText='IP: 45.12x.xxx'});
+function updTime(){document.getElementById('time').innerText=new Date().toLocaleTimeString('en-IN',{timeZone:'Asia/Kolkata'})}setInterval(updTime,1000);updTime();
+let sec=0;setInterval(()=>{sec++;let d=Math.floor(sec/86400);let h=Math.floor((sec%86400)/3600);document.getElementById('uptime').innerText=d+'d '+h+'h'},1000);
+// Stats counter
+setInterval(()=>{document.getElementById('gCount').innerText=847+Math.floor(sec/10);document.getElementById('mCount').innerText=(2.3+sec/10000).toFixed(2)+'M';document.getElementById('uCount').innerText=(10800+sec).toLocaleString()},1000);
+// Typing
+const texts=["root@lover-bot:~# initializing matrix rain...","root@lover-bot:~# breaching firewall...","root@lover-bot:~# system online - welcome_"];let ti=0,ci=0;function type(){if(ti<texts.length){if(ci<=texts[ti].length){document.getElementById('typing').innerText=texts[ti].substring(0,ci);ci++;setTimeout(type,35)}else{setTimeout(()=>{ti++;ci=0;if(ti<texts.length)type()},900)}}}type();
+// Terminal
+function runCmd(){const i=document.getElementById('termInput'),t=document.getElementById('term'),val=i.value.toLowerCase().trim();let res="";if(!val)return;if(val==='help')res="Commands: help, ping, hack, clear, alive, owner, ip";else if(val==='ping')res="PING 24ms • Server: Mumbai • Status: ONLINE ✓";else if(val==='hack')res="> Accessing mainframe... > Bypassing... > ACCESS GRANTED 😈";else if(val==='clear'){t.innerHTML="";i.value="";return}else if(val==='alive')res="Lover MD Bot is ALIVE! Uptime 99.9%";else if(val==='owner')res="Owner: Soudip • WA: 919083992123";else if(val==='ip')res=document.getElementById('ip').innerText;else res="Unknown command: "+val+" • Type 'help'";t.innerHTML+="<br>> "+val+"<br>"+res;t.scrollTop=t.scrollHeight;i.value=""}
+// Music + Share + Shake
+let playing=false;function toggleMusic(){const m=document.getElementById('bgMusic'),b=document.getElementById('musicBtn');if(!playing){m.play();b.innerText='MUSIC: ON';playing=true}else{m.pause();b.innerText='MUSIC: OFF';playing=false}}
+function shareSite(){if(navigator.share){navigator.share({title:'Lover MD Bot',url:location.href})}else{navigator.clipboard.writeText(location.href);alert('Link Copied! 🔗')}}
+function doShake(){document.body.classList.add('shake');setTimeout(()=>document.body.classList.remove('shake'),300)}
+window.onresize=()=>{c.width=innerWidth;c.height=innerHeight}
+</script>
+</body>
+</html>
